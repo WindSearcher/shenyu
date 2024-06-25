@@ -183,6 +183,7 @@
         <opengauss-jdbc.version>5.0.0-og</opengauss-jdbc.version>
         <wasmtime-java.version>0.19.0</wasmtime-java.version>
         <bcprov-jdk18on.version>1.78</bcprov-jdk18on.version>
+        <spring-web.version>5.3.30</spring-web.version>
         <!-- dependency version end -->
     </properties>
 
@@ -580,6 +581,12 @@
                 <groupId>org.bouncycastle</groupId>
                 <artifactId>bcprov-jdk18on</artifactId>
                 <version>${bcprov-jdk18on.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring-web.version}</version>
             </dependency>
 
         </dependencies>
