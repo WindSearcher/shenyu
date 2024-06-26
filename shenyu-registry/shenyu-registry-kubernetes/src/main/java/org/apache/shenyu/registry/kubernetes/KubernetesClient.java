@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-
 package org.apache.shenyu.registry.kubernetes;
 
 import org.springframework.cloud.client.ServiceInstance;
@@ -50,7 +49,8 @@ public class KubernetesClient {
      */
     public List<ServiceInstance> selectInstances(final String serviceId) {
         List<ServiceInstance> response = Collections.emptyList();
-        KubernetesServiceInstance[] responseBody = (KubernetesServiceInstance[])this.rest.getForEntity(this.kubernetesConfig.getDiscoveryServerUrl() + "/apps/" + serviceId, KubernetesServiceInstance[].class, new Object[0]).getBody();
+        KubernetesServiceInstance[] responseBody = (KubernetesServiceInstance[]) this.rest.getForEntity(this.kubernetesConfig.getDiscoveryServerUrl() + "/apps/" + serviceId,
+                KubernetesServiceInstance[].class, new Object[0]).getBody();
         if (responseBody != null && responseBody.length > 0) {
             response = (List) Arrays.stream(responseBody).filter(this::matchNamespaces).collect(Collectors.toList());
         }
