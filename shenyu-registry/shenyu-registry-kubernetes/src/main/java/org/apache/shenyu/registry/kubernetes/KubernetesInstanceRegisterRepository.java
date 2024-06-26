@@ -21,7 +21,6 @@ import org.apache.shenyu.registry.api.ShenyuInstanceRegisterRepository;
 import org.apache.shenyu.registry.api.config.RegisterConfig;
 import org.apache.shenyu.registry.api.entity.InstanceEntity;
 import org.apache.shenyu.spi.Join;
-import org.springframework.cloud.client.ServiceInstance;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
@@ -52,8 +51,8 @@ public class KubernetesInstanceRegisterRepository implements ShenyuInstanceRegis
 
     @Override
     public List<InstanceEntity> selectInstances(final String selectKey) {
-        List<ServiceInstance> serviceInstanceList = kubernetesClient.selectInstances(selectKey);
-        return serviceInstanceList.stream().map(instance -> InstanceEntity.builder()
+        List<KubernetesInstance> instanceList = kubernetesClient.selectInstances(selectKey);
+        return instanceList.stream().map(instance -> InstanceEntity.builder()
                 .appName(instance.getServiceId())
                 .host(instance.getHost())
                 .port(instance.getPort())
