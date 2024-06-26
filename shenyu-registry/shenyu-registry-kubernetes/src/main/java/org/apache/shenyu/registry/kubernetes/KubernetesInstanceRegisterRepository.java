@@ -46,12 +46,12 @@ public class KubernetesInstanceRegisterRepository implements ShenyuInstanceRegis
     }
 
     @Override
-    public void persistInstance(InstanceEntity instance) {
+    public void persistInstance(final InstanceEntity instance) {
 
     }
 
     @Override
-    public List<InstanceEntity> selectInstances(String selectKey) {
+    public List<InstanceEntity> selectInstances(final String selectKey) {
         List<ServiceInstance> serviceInstanceList = kubernetesClient.selectInstances(selectKey);
         return serviceInstanceList.stream().map(instance -> InstanceEntity.builder()
                 .appName(instance.getServiceId())

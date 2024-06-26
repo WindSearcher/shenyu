@@ -21,34 +21,61 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class KubernetesConfig {
+
     private String discoveryServerUrl;
+
     private boolean enabled = true;
+
     private List<String> namespaces = new ArrayList();
 
     public KubernetesConfig() {
     }
 
+    /**
+     * get discoveryServer url.
+     * @return discoveryServer url.
+     */
     public String getDiscoveryServerUrl() {
         return this.discoveryServerUrl;
     }
 
-    public void setDiscoveryServerUrl(String discoveryServerUrl) {
+    /**
+     * set discoveryServer url.
+     * @param discoveryServerUrl discoveryServer url.
+     */
+    public void setDiscoveryServerUrl(final String discoveryServerUrl) {
         this.discoveryServerUrl = discoveryServerUrl;
     }
 
+    /**
+     * get enable status.
+     * @return enable status.
+     */
     public boolean isEnabled() {
         return this.enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    /**
+     * set registry enable status.
+     * @param enabled enable status.
+     */
+    public void setEnabled(final boolean enabled) {
         this.enabled = enabled;
     }
 
+    /**
+     * get namespaces.
+     * @return namespaces.
+     */
     List<String> getNamespaces() {
         return this.namespaces;
     }
 
-    public void setNamespaces(List<String> namespaces) {
+    /**
+     * set kubernetes namespace.
+     * @param namespaces list of namespace.
+     */
+    public void setNamespaces(final List<String> namespaces) {
         this.namespaces = namespaces;
     }
 }
