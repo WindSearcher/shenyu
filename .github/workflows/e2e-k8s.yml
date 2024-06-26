@@ -297,6 +297,8 @@ jobs:
         run: |
           kubectl get all
           kubectl get events --all-namespaces
+          kubectl get services --all-namespaces
+          curl http://localhost:9195/springcloud/test/findByUserId?userId=1
 
   requirement:
     name: e2e
